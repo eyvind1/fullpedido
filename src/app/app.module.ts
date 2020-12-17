@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EmpresasComponent } from './components/empresas/empresas.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HeaderComponent,
     FooterComponent,
     ProductosComponent,
-    SliderComponent
+    SliderComponent,
+    EmpresasComponent
   ],
   imports: [
     BrowserModule,

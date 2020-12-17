@@ -10,25 +10,12 @@
                     <span class="subheading">Welcome to Accounting</span>
             <h2 class="mb-4">We Are the Best Accounting Agency</h2>
                 </div>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Producto</th>
-                            <th>Categoria</th>
-                        
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let item of collection.data ">
-                            <td>{{item.activo}}</td> 
-                            <td>{{item.ruc}}</td>
-                            <td>{{item.telefono}}</td>
-                            
-                        </tr>
-                        </tbody>
-                    
-                    </table>
+                    <ul class="list-group">
+                        <li *ngFor="let item of collection.data; let i=index" class="list-group-item">
+                            {{i+1}} &nbsp; {{item.ruc}} &nbsp; {{item.activo}} &nbsp; {{item.telefono}}
+                        </li>
+
+                    </ul>
                 
                 
                 <!-- <div class="services-2 w-100 d-flex">

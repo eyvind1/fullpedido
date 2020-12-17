@@ -1,0 +1,25 @@
+<section class="ftco-section ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row d-flex no-gutters"> 
+            
+            <div class="col-md-6 pl-md-5 py-md-5">
+                <div class="heading-section pl-md-4 pt-md-5">
+                    <span class="subheading">Welcome to Accounting</span>
+            <h2 class="mb-4">We Are the Best Accounting Agency</h2>
+                </div>
+                    <ul class="list-group">
+                        <li *ngFor="let item of collection.data; let i=index" class="list-group-item">
+                            {{i+1}} &nbsp; {{item.ruc}} &nbsp; {{item.departamento}} &nbsp; {{item.telefono}}
+                        </li>
+
+                    </ul>
+                     
+        </div>
+        <div class="col-md-6 d-flex">
+            <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(../../../assets/images/about.jpg);">
+            </div>
+        </div>
+    </div>
+    </div>
+</section> 
+
