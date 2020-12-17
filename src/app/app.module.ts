@@ -9,6 +9,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     
