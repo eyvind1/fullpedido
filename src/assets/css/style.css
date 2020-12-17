@@ -3372,6 +3372,7 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
+  background: rgb(1, 68, 126);
   list-style: none; }
 
 .nav-link {
@@ -3380,7 +3381,7 @@ input[type="button"].btn-block {
   .nav-link:hover, .nav-link:focus {
     text-decoration: none; }
   .nav-link.disabled {
-    color: #6c757d;
+    color: #6c757d; 
     pointer-events: none;
     cursor: default; }
 
@@ -8089,7 +8090,7 @@ h1, h2, h3, h4, h5,
         color: #fff; }
 
 .ftco-navbar-light {
-  background: #fff !important;
+  background: rgb(1, 68, 126) !important;
   z-index: 3;
   padding: 0;
   -webkit-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
@@ -8123,7 +8124,7 @@ h1, h2, h3, h4, h5,
     padding-left: 18px;
     padding-right: 18px;
     font-weight: 700;
-    color: #000000;
+    color: #fff;
     position: relative;
     text-transform: uppercase;
     opacity: 1 !important; }
@@ -8134,6 +8135,7 @@ h1, h2, h3, h4, h5,
       height: 2px;
       bottom: 0px;
       left: 0;
+      /* cambiar color de boton elegido*/
       background-color: #1ba12d;
       visibility: hidden;
       -webkit-transform: scaleX(0);
