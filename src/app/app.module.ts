@@ -6,6 +6,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { SliderComponent } from './components/slider/slider.component';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     
   ],
   providers: [],
