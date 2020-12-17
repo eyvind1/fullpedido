@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EmpresasComponent } from './components/empresas/empresas.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EmpresasComponent } from './components/empresas/empresas.component';
     FooterComponent,
     ProductosComponent,
     SliderComponent,
-    EmpresasComponent
+    EmpresasComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
