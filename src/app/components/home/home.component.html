@@ -1,12 +1,20 @@
 <ngb-carousel *ngIf="images">
+    <!-- <ng-template ngbSlide *ngFor="let image of img_url.data"> -->
     <ng-template ngbSlide>
+        <!-- <div class="picsum-img-wrapper">
+            <img [src]="image.url" alt="Random slide">
+        </div>
+        <div class="carousel-caption">
+            <h3>No mouse navigation</h3>
+            <p>This carousel hides navigation arrows and indicators.</p>
+        </div> -->
       <div class="picsum-img-wrapper">
         <img [src]="images[0]" alt="Random first slide">
       </div>
       <div class="carousel-caption">
         <h3>First slide label</h3>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div>
+      </div> -->
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
@@ -39,13 +47,19 @@
             
             <div class="col-md-6 pl-md-5 py-md-5">
                 <div class="heading-section pl-md-4 pt-md-5">
-                    <span class="subheading">Welcome to Accounting</span>
-            <h2 class="mb-4">We Are the Best Accounting Agency</h2>
+                    <span class="subheading">Empresas Afiliadas</span>
+            <h2 class="mb-4">Nosotros somos los mejores</h2>
                 </div>
                     <ul class="list-group">
+                        
                         <li *ngFor="let item of collection.data; let i=index" class="list-group-item">
-                            {{i+1}} &nbsp; {{item.ruc}} &nbsp; {{item.departamento}} &nbsp; {{item.telefono}}
+                            {{i+1}} &nbsp; {{item.ruc}} &nbsp; {{item.departamento}} &nbsp; {{item.telefono}} &nbsp; 
+                            <button (click)="verEmpresa(i)" type="button" class="btn btn-primary btn-block">
+                                ver más...
+                            </button> 
+                            <!-- <a [routerLink]="['/empresa',i]" class="btn btn-outline-primary">Ver más</a> -->
                         </li>
+                        
 
                     </ul>
                      

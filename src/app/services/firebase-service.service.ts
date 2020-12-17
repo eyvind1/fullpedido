@@ -14,4 +14,10 @@ export class FirebaseServiceService {
   getEmpresas(){
     return this.firestore.collection("Gmtc_empresa").snapshotChanges();
   } 
+
+  getEmpresa(idx:string){
+    return this.firestore.collection("Gmtc_empresa").snapshotChanges()[idx];
+  }
+
+
 }
