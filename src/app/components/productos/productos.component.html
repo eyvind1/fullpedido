@@ -1,0 +1,15 @@
+<div class="card  contenedor-productos">
+    <img *ngIf="producto.prod_cimg !== ''; else imagenblock" class="card-img-top img-producto" [src]="producto.prod_cimg" alt="productos">
+    <ng-template #imagenblock>
+        <img class="card-img-top " src="../../../assets/images/no_image.jpg" alt="productos">
+    </ng-template>
+    <div class="card-body descripcion-productos">
+        <h5 class="card-title precio-producto"> <small> S/.{{producto.prod_nprev1}}</small> </h5>
+        <p class="card-text texto-producto"> {{producto.prod_cdesc}}</p>
+        <div>
+            <button type="button" class="button btn btn-success" (click)="addProductToCart(producto)">Añadir</button>
+        </div>
+
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+</div>

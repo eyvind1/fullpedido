@@ -1,0 +1,187 @@
+<div class="contenedor-tabla">
+    <h2 class="text-center titulo-general">Mi Compra</h2>
+    <div class="contenedor-tabla-contenido">
+        <table class="table tabla-contenido">
+            <thead>
+                <tr class="cabecera-tabla">
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">P.U</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of products; let i = index" class="contenido-tabla">
+                    <td>
+                        <div>
+                            <input class="input-cantidad" type="number" id="quantity" name="quantity" [(ngModel)]="item.num" min="0" (ngModelChange)="modelChanged($event,i)">
+                        </div>
+                    </td>
+                    <td> {{item.prod_cdesc}} </td>
+                    <td> {{item.prod_nprev1|currency:'S/.'}} </td>
+                    <td> {{item.precio|currency:'S/.'}} </td>
+                </tr>
+                <tr class="contenido-tabla">
+                    <td></td>
+                    <td></td>
+                    <td>Total</td>
+                    <td> {{getTotalCost()|currency:'S/.'}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- Formulario de Validacion -->
+<div *ngIf="products.length > 0">
+    <!-- <mat-form-field appearance="legacy">
+      <mat-label> <b>Seleccione una identificación</b> </mat-label>
+      <mat-select #select>
+          <mat-option value="boleta">DNI</mat-option>
+          <mat-option value="factura">RUC</mat-option>
+      </mat-select>
+  </mat-form-field> -->
+
+    <!-- <ng-container [ngSwitch]="select.value">
+    <div *ngSwitchCase="'boleta'">
+        <form [formGroup]="dniForm">
+          <mat-form-field class="example-full-width">
+            <mat-label>Número de DNI</mat-label>
+            <input matInput formControlName="dni" #dniNumber maxlength="8" placeholder="" value="" [errorStateMatcher]="matcher">
+            <mat-hint align="end">{{dniNumber.value.length}} / 8</mat-hint> 
+            <mat-error *ngIf="f.dni?.errors?.minlength">
+              Ingrese los 8 dígitos
+            </mat-error>
+            <mat-error *ngIf="f.dni?.errors?.required">
+              Campo Requerido
+            </mat-error>
+            <mat-error *ngIf="f.dni?.errors?.pattern">
+              Ingrese sólo números
+            </mat-error>
+          </mat-form-field>
+        &nbsp;
+        
+          <button type="button" class="button btn btn-success" (click)="getDni($event)" [disabled]="!dniForm.valid" [hidden]="inboundClick">Comprar</button>
+     
+        
+        </form>
+        <div *ngIf="showMyMessage; else elseBlock">
+          <div class="alert alert-success">
+            <strong>Su compra fue generada con éxito</strong> 
+              Gracias por su Compra!!. <br>
+              En breve el vendedor se pondra en contacto con Usted. <br>
+              Recuerda que Fullpedido sólo es un intermediario entre compradores y vendedores. Por lo tanto no se responsabiliza del envio de productos
+              
+          </div>
+        </div>
+        <ng-template #elseBlock>
+          <p>Si usted no se encuentra registrado en nuestra aplicación. Regístrese a través de nuestra aplicación móvil</p>
+          <div class="contenedor-playestore">
+            <a href="https://play.google.com/store/apps/details?id=com.fullpedido"><img src="../../../assets/images/playstore22.png" alt=""></a>
+          </div>
+        </ng-template>
+    </div>
+
+
+    <div *ngSwitchCase="'factura'">
+      <form [formGroup]="rucForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Número de RUC</mat-label>
+          <input matInput formControlName="ruc" #rucNumber maxlength="11" placeholder="" value="" [errorStateMatcher]="matcher">
+          <mat-hint align="end">{{rucNumber.value.length}} / 11</mat-hint>
+          <mat-error *ngIf="g.ruc?.errors?.minlength">
+            Ingrese los 11 dígitos
+          </mat-error>
+          <mat-error *ngIf="g.ruc?.errors?.required">
+            Campo Requerido
+          </mat-error>
+          <mat-error *ngIf="g.ruc?.errors?.pattern">
+            Ingrese sólo números
+          </mat-error>
+        </mat-form-field>
+        &nbsp;
+        <button type="button" class="button btn btn-success" (click)="getRuc($event)" [disabled]="!rucForm.valid" [hidden]="inboundClick">Comprar</button>
+      </form>
+      <div *ngIf="showMyMessage; else elseBlock">
+        <div class="alert alert-success">
+          <strong>Su compra fue generada con éxito</strong> 
+            Gracias por su Compra!!. <br>
+            En breve el vendedor se pondra en contacto con Usted. <br>
+            Recuerda que Fullpedido sólo es un intermediario entre compradores y vendedores. Por lo tanto no se responsabiliza del envio de productos
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <p>Si usted no se encuentra registrado. Regístrese a través de nuestras aplicaciones</p>
+        <div class="contenedor-playestore">
+          <a href="https://play.google.com/store/apps/details?id=com.fullpedido"><img src="../../../assets/images/playstore22.png" alt=""></a>
+          <a href="hhttps://fullpedido.com/descargas/setup.exe"><img src="../../../assets/images/escritorio.png" alt=""></a> 
+        </div>
+      </ng-template>
+    </div>
+  </ng-container>
+  
+</div> -->
+    <div>
+        <div class="contenedor-usuario">
+            Usuario
+        </div>
+
+        <div>
+            <form [formGroup]="rucForm">
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Usuario, RUC o DNI</mat-label>
+                        <input class="usuario" matInput formControlName="ruc" #rucNumber maxlength="11" placeholder="" value="" [errorStateMatcher]="matcher">
+                        <mat-hint align="end">{{rucNumber.value.length}} / 11</mat-hint>
+                        <mat-error *ngIf="f.ruc?.errors?.minlength">
+                            Ingrese los 8 dígitos
+                        </mat-error>
+                        <mat-error *ngIf="f.ruc?.errors?.required">
+                            Campo Requerido
+                        </mat-error>
+                        <mat-error *ngIf="f.ruc?.errors?.pattern">
+                            Ingrese sólo números
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Clave</mat-label>
+                        <input class="clave" matInput [type]="hide ? 'password' : 'text'" formControlName="clave" #clave placeholder="" value="">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">  
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+                        <mat-error *ngIf="f.clave?.errors?.required">
+                            Campo Requerido
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </form>
+            <div>
+                <button type="button" class="button btn btn-success" (click)="getRuc($event)" [disabled]="!rucForm.valid" [hidden]="inboundClick">Comprar</button>
+            </div>
+            <div *ngIf="showMyMessage; else elseBlock">
+                <div class="alert alert-success">
+                    <strong>Su compra fue generada con éxito</strong> Gracias por su Compra!!. <br> En breve el vendedor se pondra en contacto con Usted. <br> Recuerda que Fullpedido sólo es un mediador entre compradores y vendedores. No gestionamos pagos
+                    ni cobros por este medio, toda gestión es directamente con su proveedor.
+                    <!-- Por lo tanto no se responsabiliza del envio de productos -->
+
+                </div>
+            </div>
+            <ng-template #elseBlock>
+              <br>
+                <p style="color: #fff;">Compra sin comisiones ni recargos <a class="btn btn-primary" href="https://fullpedido.com/#/register" target="_blank">Regístrate Aquí</a></p>
+                
+                <div class="contenedor-playestore">
+                    <a href="https://play.google.com/store/apps/details?id=com.fullpedido"><img src="../../../assets/images/playstore22.png" alt=""></a>
+                    <a href="hhttps://fullpedido.com/descargas/setup.exe"><img src="../../../assets/images/escritorio.png" alt=""></a>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button type="button" class="button btn btn-success" (click)="goHome()" [hidden]="gohome">Seguir Comprando</button>
+    </div>

@@ -1,4 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
 
- 
-  
-  
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.custom-dialog-container .mat-dialog-container {
+    /* margin-top: 100px; */
+    z-index:9999;
+}
+
+.mat-select-panel {
+    max-height: 400px !important;
+}

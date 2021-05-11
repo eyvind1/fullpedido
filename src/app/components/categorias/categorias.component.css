@@ -1,0 +1,35 @@
+
+.imagen {
+    width: 30%;
+}
+
+.categoria {
+    transition: transform 1s ease;
+}
+
+.categoria:hover {
+    cursor: pointer;
+    background: #2471A3;
+    border-radius: 16px;
+    transform: scale(1.1, 1.1);
+}
+
+.categoria:hover .imagen {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.categoria {
+    overflow: hidden;
+}
+
+.categoria:hover h6 {
+    /* -webkit-transform: scale(0.95);
+    transform: scale(0.95); */
+    font-weight: 700;
+    color: #fff;
+}
+
+.contenedor-texto-categoria {
+    margin-top: 15px;
+}

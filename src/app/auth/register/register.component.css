@@ -1,0 +1,31 @@
+.cabecera {
+    margin: 150px 0 50px 0;
+}
+
+.contenedor {
+    text-align: center;
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+
+/* ============================================================= */
+
+.card-formulario {
+    box-shadow: 1px 1px 10px;
+    border-radius: 10px;
+}
+
+.contenedor-general-formulario-registro {
+    margin-top: 30px;
+}
+
+.texto-registrar {
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 25px;
+}

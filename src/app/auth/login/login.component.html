@@ -1,0 +1,33 @@
+<div class="row cabecera">
+    <div class="col-md-6 mx-auto mt-5 ">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center">LOGIN</h1>
+                <form (ngSubmit)="login(f)" #f="ngForm" class="needs-validation" validate>
+                    <div class="form-group">
+                        <label for="documento">DNI ó RUC</label>
+                        <input type="text" class="form-control" name="documento" [(ngModel)]="usuario.emp_cruc" documento required minlength="8">
+                        <div class="valid-feedback">Válido</div>
+                        <div *ngIf="f.submitted && f.controls['documento'].errors" class="invalid-feedback">Su documento es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">CONTRASEÑA</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="usuario.emp_cpassw" required minlength="6">
+                        <div class="valid-feedback">Válido</div>
+                        <div *ngIf="f.controls['password']?.errors" class="invalid-feedback">La contraseña debe ser mas de 6 caracteres</div>
+                        <div *ngIf="f.submitted && f.controls['password'].errors" class="invalid-feedback">La contraseña es obligatorio</div>
+                    </div>
+                    <!-- <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
+                        <label class="form-check-label" for="exampleCheck1">Recordar mi usuario</label>
+                      </div> -->
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                </form>
+                <!-- <div class="form-group mt-3">
+                    <p> Crear una Cuenta <a routerLink="/register">Registrar</a></p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>  
+

@@ -1,0 +1,24 @@
+<!-- carrusel -->
+
+<!-- Slider main container -->
+<div class="swiper-container slideshow1">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <!-- <div *ngFor="let item of this.promociones" class="swiper-slide" [ngClass]="{'background-size': 'cover','background-image':'url('+item.prom_tipo.tipo_cimagen+')'}"> -->
+        <div *ngFor="let item of this.promociones " class="swiper-slide text-center" data-swiper-autoplay="2000">
+            <img class="img-thumbnail" [src]="item.prom_tipo.tipo_cimagen" alt="Random first slide" style="width: 100%; height: 100%;">
+            <div class="categoria-descripcion">
+                <h3 class="texto-productos-promocion" style="color: white;">{{item.emp_cate.cat_cdes}}</h3>
+            </div>
+        </div>
+
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div (click)="onSlidePrev()" class="swiper-button-prev"></div>
+    <div (click)="onSlideNext()" class="swiper-button-next"></div>
+
+</div>

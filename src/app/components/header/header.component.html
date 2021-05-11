@@ -1,53 +1,57 @@
-<div class="wrap">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="bg-wrap">
-                  <div class="row">
-                      <div class="col-md-6 d-flex align-items-center">
-                          <p class="mb-0 phone pl-md-2">
-                              <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a> 
-                              <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
-                          </p>
-                      </div>
-                      <div class="col-md-6 d-flex justify-content-md-end">
-                          <div class="social-media">
-                          <p class="mb-0 d-flex">
-                              <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                              <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                              <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                              <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-                          </p>
-                  </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
-<div class="container">
-  <a class="navbar-brand" href="index.html"><img src="../../../assets/images/logonav.jpg" alt="" width="70px"></a>
-  <form action="#" class="searchform order-sm-start order-lg-last">
-<div class="form-group d-flex">
-  <input type="text" class="form-control pl-3" placeholder="Search">
-  <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
-</div>
-</form>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="fa fa-bars"></span> Menu
-</button>
-<div class="collapse navbar-collapse" id="ftco-nav">
-  <ul class="navbar-nav m-auto">
-    <!-- active -->
-      <li class="nav-item" routerLinkActive="active"><a [routerLink]="['home']" class="nav-link">Home</a></li>
-      <li class="nav-item" routerLinkActive="active"><a [routerLink]="['about']" class="nav-link">About</a></li>
-      <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-    <li class="nav-item"><a href="cases.html" class="nav-link">Case Study</a></li>
-    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-  </ul>
-</div>
-</div>
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light nav">
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="https://fullpedido.com/">
+            <img src="../../../assets/images/fullpedido.png" width="50" height="45" alt="" loading="lazy">
+        </a>
+    </nav>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <!-- ====================================== -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active vistas">
+                <a class="nav-link" routerLink="/" routerLinkActive="router-link-active">Inicio</a>
+            </li>
+
+            <!-- <li class="nav-item active vistas">
+                <a class="nav-link" routerLink="">Cómo funciona</a>
+            </li> -->
+            <li class="nav-item active vistas">
+                <a class="nav-link" href="https://marketplace.fullpedido.com/index.html">Quiénes somos</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 contenedor-buscador">
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar por Nombre Comercial" aria-label="Search" (keyup.enter)="buscarEmpresa(buscarTexto.value)" #buscarTexto>
+            <button (click)="buscarEmpresa(buscarTexto.value)" class="btn btn-primary my-2 my-sm-0" type="button">Buscar</button>
+        </form>
+
+        <div class="contenedor-general-registro">
+            <div class="ps-block--user-header contenedor-registro">
+                <div class="ps-block__left contenedor-iconos">
+                    <i class="fas fa-store"></i>
+                    <a routerLink="/beneficios-vendedor">Abre tu tienda</a>
+                </div>
+
+            </div>
+            <div class="ps-block--user-header contenedor-registro">
+                <div class="ps-block__left contenedor-iconos">
+                    <i class="fas fa-shopping-cart"></i>
+                    <a routerLink="/beneficios-comprador">Registrate para comprar</a>
+                </div>
+            </div>
+
+            <div class="ps-block--user-header contenedor-registro">
+                <div class="ps-block__left contenedor-iconos">
+                    <i class="fas fa-user"></i>
+                    <a href="https://aplicacion.fullpedido.com/#/login">Mi cuenta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========================================== -->
 </nav>

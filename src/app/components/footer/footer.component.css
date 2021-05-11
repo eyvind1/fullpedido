@@ -1,0 +1,25 @@
+footer {
+    background: linear-gradient(180deg, #30353B 0%, #1A1B1F 100%);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0;
+    bottom: 0;
+    width: 100%;
+    /* position: relative;
+    
+    width: 100%; */
+}
+
+.copyright {
+    padding: 20px;
+}
+
+.contenedor-terminos a {
+    color: gray;
+    text-decoration: none;
+}
+
+.contenedor-terminos a:hover {
+    color: #fff;
+}

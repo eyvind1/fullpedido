@@ -1,0 +1,244 @@
+<div class="container">
+    <div class="row cabecera">
+
+        <div class="col-md-6 mx-auto contenedor-general-formulario-registro">
+            <div class="card card-formulario">
+                <div class="card-body">
+                    <h1 class="text-center texto-registrar">REGISTRAR</h1>
+                    <div *ngIf="ocultar">
+                        <form  [formGroup]="documentoForm">
+                            <div class="form-group">
+                                <label for="text">
+                                    DNI ó RUC
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    formControlName="documento"
+                                    required 
+                                    minlength="8" 
+                                    maxlength="11"
+                                >
+                                <div class="text-danger" *ngIf="documentoF.documento.invalid && (documentoF.documento.dirty || documentoF.documento.touched)">                 
+                                    <div class="text-danger" *ngIf="documentoF.documento.errors.required">
+                                      Campo requerido
+                                    </div>
+                                    <div class="text-danger" *ngIf="documentoF.documento.errors.minlength">
+                                      Su documento es inválido
+                                    </div>
+                                    <div class="text-danger" *ngIf="documentoF.documento.errors.maxlength">
+                                      Su documento es inválido
+                                    </div>
+                                    <div class="text-danger" *ngIf="documentoF.documento.errors.pattern">
+                                      Ingrese solo números
+                                    </div> 
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" [disabled]="!documentoForm.valid" (click)="newForm()">
+                                    Validar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div *ngIf="mostrar">
+                        <form [formGroup]="datosForm">
+                            <div class="form-group">
+                                <label for="text">Email</label>
+                                <input 
+                                    type="email"
+                                    class = "form-control"
+                                    formControlName="email"
+                                    required
+                                >
+                                <div class="text-danger" *ngIf="dataF.email.invalid && (dataF.email.dirty || dataF.email.touched)">                 
+                                    <div class="text-danger" *ngIf="dataF.email.errors.required">
+                                        Campo requerido
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.email.errors.email">
+                                        Email inválido
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                <input 
+                                    type="password" 
+                                    class="form-control"
+                                    formControlName="password"
+                                    minlength="6"
+                                    required
+                                    
+                                >
+                                <div class="text-danger" *ngIf="dataF.password.invalid && (dataF.password.dirty || dataF.password.touched)">                 
+                                    <div class="text-danger" *ngIf="dataF.password.errors.required">
+                                        Campo requerido
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.password.errors.minlength">
+                                        Debe ser mayor a 6 caracteres
+                                    </div> 
+                                    <div class="text-danger" *ngIf="dataF.password.errors.maxlength">
+                                        Contraseña inválida
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirmar Contraseña</label>
+                                <input 
+                                    type="password" 
+                                    class="form-control"
+                                    formControlName="confirmPassword"
+                                    minlength="6"
+                                    required
+                                    appConfirmEqualValidator="password"
+                                >
+                                <div class="text-danger" *ngIf="dataF.confirmPassword.invalid && (dataF.confirmPassword.dirty || dataF.confirmPassword.touched)">                 
+                                    <div class="text-danger" *ngIf="dataF.confirmPassword.errors.required">
+                                        Campo requerido
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.confirmPassword.errors.notEqual">
+                                        Las contraseñas no coinciden
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control"
+                                    formControlName="telefono" 
+                                    required 
+                                    minlength="8" 
+                                    maxlength="9"  
+                                >
+                                <div class="text-danger" *ngIf="dataF.telefono.invalid && (dataF.telefono.dirty || dataF.telefono.touched)">                 
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.required">
+                                        Campo requerido
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.minlength">
+                                        Número incorrecto
+                                    </div> 
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.maxlength">
+                                        Número incorrecto
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.pattern">
+                                        Solo números
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contenedor" *ngIf="esRuc=== true || esRus===true">
+                                <mat-form-field appearance="legacy">
+                                    <mat-label> <b>Seleccione Categoría</b> </mat-label>
+                                    <mat-select formControlName="categoria" name="categoria" [disableOptionCentering]="true" required [errorStateMatcher]="matcher" [(ngModel)]="categoriaselected" [ngModelOptions]="{standalone: true}">
+                                        <mat-option *ngFor="let item of this.categorias" [value]="item.cat_ncod">
+                                            {{item.cat_cdes}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="dataF.categoria.invalid && (dataF.categoria.dirty || dataF.categoria.touched)">
+                                        <mat-error *ngIf="dataF.categoria.errors.required">
+                                            Campo requerido
+                                        </mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="!esRuc">
+                                <mat-form-field class="btn-filtro" appearance="legacy">
+                                    <mat-label> <b>Departamento</b> </mat-label>
+                                    <mat-select formControlName="departamento" name="departamento" [disableOptionCentering]="true" (selectionChange)="filtrarProvincias()" [(ngModel)]="departamentoselected" [ngModelOptions]="{standalone: true}" required [errorStateMatcher]="matcher">
+                                        <mat-option *ngFor="let item of this.departamentos" [value]="item.id_departamento">
+                                            {{item.nombre_departamento}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="dataF.departamento.invalid && (dataF.departamento.dirty || dataF.departamento.touched)">
+                                        <mat-error *ngIf="dataF.departamento.errors.required">
+                                            Campo requerido
+                                        </mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="!esRuc ">
+                                <mat-form-field appearance="legacy">
+                                    <mat-label><b>Provincia</b></mat-label>
+                                    <mat-select formControlName="provincia" name="provincia" [disableOptionCentering]="true" (selectionChange)="filtrarDistritos()" [(ngModel)]="provinciaselected" [ngModelOptions]="{standalone: true}" required [errorStateMatcher]="matcher">
+                                        <mat-option *ngFor="let item of provinciafiltered" [value]="item.id_provincia">
+                                            {{item.nombre_provincia}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="dataF.provincia.invalid && (dataF.provincia.dirty || dataF.provincia.touched)">
+                                        <mat-error *ngIf="dataF.provincia.errors.required">
+                                            Campo requerido
+                                        </mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="!esRuc">
+                                <mat-form-field appearance="legacy">
+                                    <mat-label> <b>Distrito</b></mat-label>
+                                    <mat-select formControlName="distrito" name="distrito" [disableOptionCentering]="true" [(ngModel)]="distritoselected" [ngModelOptions]="{standalone: true}" required [errorStateMatcher]="matcher">
+                                        <mat-option *ngFor="let item of distritofiltered" [value]="item.id_distrito">
+                                            {{item.nombre_distrito}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="dataF.distrito.invalid && (dataF.distrito.dirty || dataF.distrito.touched)">
+                                        <mat-error *ngIf="dataF.distrito.errors.required">
+                                            Campo requerido
+                                        </mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group" *ngIf="!esRuc ">
+                                <label for="direccion">Dirección</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="direccion" 
+                                    required 
+                                    minlength="6" 
+                                    maxlength="40" 
+                                    formControlName="direccion"
+                                >
+                                <div class="text-danger" *ngIf="dataF.direccion.invalid && (dataF.direccion.dirty || dataF.direccion.touched)">                 
+                                    <div class="text-danger" *ngIf="dataF.direccion.errors.required">
+                                        Campo requerido
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.minlength">
+                                        Debe ser mayor a 6 caracteres
+                                    </div> 
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.maxlength">
+                                        Sobrepaso el límite
+                                    </div>
+                                    <div class="text-danger" *ngIf="dataF.telefono.errors.pattern">
+                                        Dirección incorrecta
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check form-group">
+                                <input 
+                                    class="form-check-input" 
+                                    type="checkbox"  
+                                    id="check1"
+                                    formControlName="acceptTerms" 
+                                    [ngClass]="{ 'is-invalid': dataF.acceptTerms.errors }"
+                                >
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  <a target="_blank" href="https://fullpedido.com/#/terminos-condiones">acepto los términos y condiciones</a> 
+                                </label>
+                                <div *ngIf=" dataF.acceptTerms.errors" class="invalid-feedback">Accepte los Ts & Cs</div>
+                              </div>
+                            <div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" [disabled]="!datosForm.valid" (click)="saveNewUser()">
+                                Registrar
+                            </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-group mt-3">
+                        <p> ¿Tiene una cuenta? <a href="https://aplicacion.fullpedido.com/#/login">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

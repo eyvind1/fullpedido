@@ -1,0 +1,42 @@
+/* contenedor de las empresas  */
+
+.contenedor-productos {
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.contenedor-productos:hover {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+}
+
+
+/*boton añadir*/
+
+.button {
+    border-radius: 15px;
+    width: 100%;
+}
+
+
+/* estilos de la imagen del producto */
+
+.img-producto {
+    width: 70%;
+    margin: 15px auto 0;
+    border-radius: 6px;
+}
+
+
+/* estilos de la descripcion del producto */
+
+.descripcion-productos {
+    padding-top: 5px;
+}
+
+.precio-producto {
+    margin: 0;
+}
+
+.texto-producto {
+    margin: 0 0 5px 0;
+}

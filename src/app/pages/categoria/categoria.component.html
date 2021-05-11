@@ -1,0 +1,17 @@
+<div class="row" *ngIf="promociones.length > 0; else margin">
+    <div class="col">
+        <app-carrusel [promociones]="promociones"></app-carrusel>
+    </div>
+</div>
+<ng-template #margin>
+    <div class="margen">
+    </div>
+</ng-template>
+<div class="container">
+    <div class="productos">
+        <app-listado-empresas></app-listado-empresas>
+    </div>
+    <div class="img-lateral">
+        
+    </div>
+</div>

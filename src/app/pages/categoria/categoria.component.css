@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.productos {
+    max-width: 65%;
+}
+
+.img-lateral {
+    max-width: 30%;
+}
+
+@media screen and (max-width:800px) {
+    .productos {
+        max-width: 100%;
+    }
+    .img-lateral {
+        visibility: hidden;
+    }
+}
+.margen{
+    margin-top: 90px;
+}

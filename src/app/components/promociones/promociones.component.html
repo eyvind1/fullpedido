@@ -1,0 +1,40 @@
+<!--<div class="col-md-6 d-flex container"> -->
+
+<!-- <div class="heading-section pl-md-4 pt-md-5">
+
+    <h2 class="mb-4"> <b>NUESTRAS PROMOCIONES</b> </h2>
+</div>  -->
+
+
+
+
+<div class="row">
+    <!-- combo box categorias -->
+    <!-- <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Seleccione una Categoría</mat-label>
+              <mat-select [(ngModel)]="categoriaselected" name="categoria"  > -->
+    <!-- <mat-select-filter [placeholder]="'Filter'" [displayMember]="'cat_cdes'" [array]="categoriaList" (filteredReturn)="filteredListcategoria =$event"></mat-select-filter>  -->
+
+    <!--  <mat-option *ngFor="let categoria of this.categorias" [value]="categoria.cat_cdes">
+                    {{categoria.cat_cdes}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <p>You selected: {{categoriaselected}}</p>
+          </div>  -->
+
+
+
+    <!-- imagenes de las promociones por ciudades -->
+
+
+    <div *ngFor="let item of this.promociones | filterCategoriasCarrusel: categoriaselected">
+        <img [src]="item.prom_tipo.tipo_cimagen" class="rounded float-end contenedor-img-promociones" alt="..." style="width: 100%; height: 45vh;
+        margin-bottom: 10px;">
+    </div>
+
+
+</div>
+<!-- </div> -->

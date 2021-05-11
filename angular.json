@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fullpedido": {
+    "fullpedidoangular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fullpedido",
+            "outputPath": "dist/fullpedidoangular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,10 +24,14 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/swiper/swiper-bundle.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/conversor.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,18 +67,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fullpedido:build"
+            "browserTarget": "fullpedidoangular:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fullpedido:build:production"
+              "browserTarget": "fullpedidoangular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fullpedido:build"
+            "browserTarget": "fullpedidoangular:build"
           }
         },
         "test": {
@@ -111,15 +116,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "fullpedido:serve"
+            "devServerTarget": "fullpedidoangular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "fullpedido:serve:production"
+              "devServerTarget": "fullpedidoangular:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "fullpedido"
+    }
+  },
+  "defaultProject": "fullpedidoangular",
+  "cli": {
+    "analytics": false
+  }
 }

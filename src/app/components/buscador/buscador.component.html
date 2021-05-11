@@ -1,0 +1,39 @@
+<div class="container">
+
+    <h1 class="imagen-grande">Buscando: <small>{{termino}}</small></h1>
+    <hr>
+    <div class="row" *ngIf="empresas.length == 0">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                No existen resultados con el término: {{termino}}
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3 contenedor-empresas" *ngFor="let item of empresas ">
+        <div class="row no-gutters">
+            <div class="col-md-3 contenedor-img">
+                <img class="card-img" alt="..." *ngIf="item.emp_clogo?.length < 1; else imagenblock" src="../../../assets/images/invoice_logo.png" alt="">
+                <ng-template #imagenblock>
+                    <img class="card-img" alt="..." src={{item.emp_clogo}} alt="">
+                </ng-template>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title titulo-empresas">{{item.emp_cncomer}}</h5>
+                    <h6 class="card-title razon-social">{{item.emp_crass}}</h6>
+                    <p class="card-text descripcion-empresa">{{item.aeco_cdesc | lowercase }}</p>
+                    <p class="contenedor-estrellas">
+                        <ng-template #t let-fill="fill">
+                            <span class="star" [class.full]="fill === 100">
+                              <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
+                            </span>
+                        </ng-template>
+                        <ngb-rating [starTemplate]="t" [rate]="item.emp_ncalif" [readonly]="true" [max]="5"></ngb-rating>
+                    </p>
+                    <button type="button" class="btn btn-success" (click)="verEmpresa(item.propertyId)">Ver Productos</button>
+                    <h5 class="card-title lugar">{{item.emp_cdepa}} - {{item.emp_cprov}} - {{item.empm_cdist}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

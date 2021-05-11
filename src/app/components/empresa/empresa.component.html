@@ -1,31 +1,87 @@
-<h1>Empresa <small>Nombre de Empresa</small></h1>
-<hr>
+<div class="contenedor container" [ngStyle]="{'background-color': getColorBackground(this.empresa.emp_cate?.cat_ncod)}">
 
-<div class="row text-right"></div>
-<div class="col">
-    <button class="btn btn-danger" routerLink="/home">
-        <i class="fa fa-arrow-left"></i>
-    </button>
+    <!-- <div class="card mb-3" [ngStyle]="{'background-image': 'url(../../../assets/images/scaled.jpg)'}">  -->
+    <div class="card mb-3" [ngStyle]="{'background-image': getBackground(this.empresa.emp_cate?.cat_ncod)}">
+        <div class="row no-gutters">
+            <div class="col-md-4 contenedor-img">
+                <img style="width: 200px;" class="card-img" alt="..." *ngIf="this.empresa.emp_clogo?.length < 1; else imagenblock" src="../../../assets/images/invoice_logo.png" alt="">
+                <ng-template #imagenblock>
+                    <img style="width: 200px;" class="card-img" alt="..." src={{this.empresa.emp_clogo}} alt="">
+                </ng-template>
+            </div>
+            <div class="col-md-8 ">
+                <div class="card-body">
+                    <h1 class="card-title titulo-empresa">{{this.empresa.emp_cncomer}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col">
+        <button class="btn btn-danger" routerLink="/home">
+            <i class="fas fa-arrow-left"></i>
+        </button>
 
-</div>
+    </div>
+ -->
+    <!-- <h1>{{this.empresa.emp_cncomer}} </h1> -->
+    <hr>
+    <div class="row text-right"></div>
 
-<div>
-    <div class="col">
-        <ul class="list-group">
-                        
-            <li class="list-group-item">
-            
-                Nombre - Ruc
-                <!-- <a [routerLink]="['/empresa',i]" class="btn btn-outline-primary">Ver más</a> -->
-            </li>
-            <li class="list-group-item">
-            
-                Nombre - Ruc
-                <!-- <a [routerLink]="['/empresa',i]" class="btn btn-outline-primary">Ver más</a> -->
-            </li>
 
-        </ul>
+
+    <!-- <h1 class="palabra-productos">
+        Productos
+    </h1> -->
+    <div>
+        <input class="form-control" type="text" name="productos" [(ngModel)]="productos" placeholder="Ingrese el producto a buscar">
+    </div>
+    <hr>
+    <div class="row container contenedor-productos-micompra " [ngStyle]="{'background-color': 'white'}">
+        <div class="contenedor-productos">
+            <!-- <cdk-virtual-scroll-viewport itemSize="7" class="list-container"> -->
+                <div class="row">
+                    <div class="col-sm-2 productos-descripcion" *ngFor="let item of this.empresa.emp_aprod |filtrarProductos:productos">
+                        <app-productos [producto]="item" (productAdded)="addProductToCart($event)"></app-productos>
+                    </div>
+                </div>
+            <!-- </cdk-virtual-scroll-viewport> -->
+        </div>
+
+        <!-- <div class="contenedor-micompra">
+
+            <app-listado-commpras [products]="cartProductList" [empresa]="empresa" (productRemoved)="removeProduct($event)"></app-listado-commpras>
+        </div> -->
+
+        <div class="contenedor-modal modal-close" id="modal-close">
+            <div class="ventana-emergente-compras ">
+                <div class="modal-closedd">
+
+                    <img class="img-minimizar-compra" id="close" src="../../../assets/images/flecha-atras.png" alt="">
+
+                </div>
+                <div class="contenedor-micompra">
+
+
+                    <app-listado-commpras [products]="cartProductList" [empresa]="empresa" (productRemoved)="removeProduct($event)">
+
+                    </app-listado-commpras>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
     </div>
+
+
+
+</div>
+
+<div class="contenedor-cuadro-ventas">
+
+    <a class="cta" id="cta"><img src="../../../assets/images/lista-compra.png" alt=""> MI COMPRA</a>
 </div>

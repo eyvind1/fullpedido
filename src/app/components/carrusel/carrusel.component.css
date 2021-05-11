@@ -1,0 +1,53 @@
+/* estilos del primer carrusel */
+
+
+/*  .carousel{
+    width: 100%;
+    width: auto;
+    
+    
+}
+
+.imagen-grande{
+    margin-top: 90px;
+    width: 500px;
+    height: auto;
+} */
+
+.swiper-container {
+    margin-top: 90px;
+    height: 500px;
+    width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: rgb(71, 66, 66);
+}
+
+.categoria-descripcion {
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    padding: 5px, 30px;
+    position: absolute;
+    width: 100%;
+}
+
+.imagengrande {
+    background-size: cover;
+}
+
+
+/* Tamaño del texto de las imagenes de promocion */
+
+@media screen and (max-width:800px) {
+    .texto-productos-promocion {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .texto-productos-promocion {
+        font-size: 20px;
+    }
+}

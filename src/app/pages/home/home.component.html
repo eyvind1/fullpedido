@@ -1,0 +1,49 @@
+<!-- <div>
+  <app-loading *ngIf="loading"></app-loading>
+</div>  -->
+<div class="row" *ngIf="promociones.length > 0">
+    <div class="col">
+        <app-carrusel [promociones]="promociones"></app-carrusel>
+    </div>
+
+</div>
+
+
+<app-categorias (sendcategoriaselected)="changeCategoria($event)"></app-categorias>
+
+
+
+
+<div class="container">
+    <div class="productos">
+        <app-empresas (sendcategoriaselected)=" changeCategoria($event)" [empresas]="empresas" [categoria]="categoriaselected"></app-empresas>
+    </div>
+    <div class="img-lateral">
+        <app-promociones [categoriaselected]="categoriaselected" [promociones]="promociones"></app-promociones>
+    </div>
+</div>
+
+
+<!-- /* ======================HTML DEL MODAL DE PROMOCION DE INICIO===================== */ -->
+<div class="modal-container">
+    <div class="modal ">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <img src="../../../assets/images/img-modal.jpeg" alt="">
+        <div class="modal-textos">
+            <h2>Vende a nivel nacional</h2>
+            <h3>Accede a nuevos mercados, atrae nuevos clientes y proveedores.
+            </h3>
+            <h3 style="color: #ff8000">¡Qué esperas para registrarte!</h3>
+        </div>
+        <div class="contenedor-botones">
+            <a routerLink="/register" class="btn-registrar">COMIENZA GRATIS</a>
+            <a class="btn-cerrar">CERRAR</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- =============================================================================== -->
+
+
+<!-- <div class="container"> <p>Your IP Address : {{ipAddress}}</p> </div> -->

@@ -1,0 +1,54 @@
+.imagen-grande {
+    width: 100%;
+    height: auto;
+}
+
+.categoria-descripcion {
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    padding: 5px, 30px;
+    position: absolute;
+    width: 100%;
+}
+
+
+/* Tamaño del texto de las imagenes de promocion */
+
+@media screen and (max-width:800px) {
+    .texto-productos-promocion {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .texto-productos-promocion {
+        font-size: 20px;
+    }
+}
+
+
+/* estilos de las imagenes de las promociones */
+
+.contenedor-img-promociones {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* estilo de la imagen lateral derecha donde apareceran las promociones */
+
+.contenedor-playestore img {
+    width: 75%;
+}
+
+.contenedor-playestore {
+    background-color: #cdcdcd;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0px 0px 5px;
+}
+
+.contenedor-playestore:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+}

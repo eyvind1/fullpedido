@@ -1,0 +1,127 @@
+<div class="contenedor-cate-playstore">
+    <div class="heading-section contenedor-categoria-general">
+        <!-- <div class="contenedor-texto-categoria">
+            <h2 class="mb-4 titulo-categoria"> <b>CATEGORÍAS</b> </h2>
+        </div>
+
+        <div class="contenedor-categoria">
+            <mat-form-field appearance="legacy">
+                <mat-label> <b>Seleccione Categoría</b> </mat-label>
+                <mat-select [(ngModel)]="categoriaselected" name="categoria" [disableOptionCentering]="true" (selectionChange)="filtrarCategorias()">
+                   
+
+                    <mat-option *ngFor="let item of this.categorias" [value]="item.cat_ncod">
+                        {{item.cat_cdes}}
+
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div> -->
+        <div class="contenedor-playestore2">
+            <div class="row">
+                <!-- <div class="col-4 contenedor-subtitulo-descarga">
+                    <h2 class="subtitulo-descarga">Descarga </h2>
+                </div> -->
+                <div class="col-10 contenedor-descargas" style="text-align: left;">
+                    <a href="https://play.google.com/store/apps/details?id=com.fullpedido"><img src="../../../assets/images/playstore22.png" alt=""></a>
+                    <a href="https://fullpedido.com/descargas/setup.exe"><img src="../../../assets/images/escritorio.png" alt=""></a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="contenedor-playestore">
+
+            <!-- combo box departamentos -->
+            <div class="filtro-lugar">
+
+                <div>
+                    <mat-form-field class="btn-filtro" appearance="legacy">
+                        <mat-label> <b>Departamento</b> </mat-label>
+                        <mat-select class="btn-filtro1" [(ngModel)]="departamentoselected" name="departamento" [disableOptionCentering]="true" (selectionChange)="filtrarProvincias()">
+                            <!-- <mat-select-filter [placeholder]="'Filter'" [displayMember]="'name'" [array]="departamentoList" (filteredReturn)="filteredListdepartamento =$event"></mat-select-filter>   -->
+
+                            <mat-option *ngFor="let item of this.departamentos" [value]="item.id_departamento">
+                                {{item.nombre_departamento}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- <p>You selected: {{departamentoselected}}</p> -->
+                </div>
+                <!-- combo box provincias -->
+                <div>
+                    <mat-form-field appearance="legacy">
+                        <mat-label><b>Provincia</b></mat-label>
+                        <mat-select [(ngModel)]="provinciaselected" name="provincia" [disableOptionCentering]="true" (selectionChange)="filtrarDistritos()">
+                            <!-- <mat-select-filter [placeholder]="'Filter'" [displayMember]="'name'" [array]="provinciaList" (filteredReturn)="filteredListprovincia =$event"></mat-select-filter>   -->
+
+                            <mat-option *ngFor="let item of provinciafiltered" [value]="item.id_provincia">
+                                {{item.nombre_provincia}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- <p>You selected: {{provinciaselected}}</p> -->
+                </div>
+                <!-- combo box distritos -->
+                <div>
+                    <mat-form-field appearance="legacy">
+                        <mat-label> <b>Distrito</b></mat-label>
+                        <mat-select [(ngModel)]="distritoselected" name="distrito" [disableOptionCentering]="true" (selectionChange)="filtrarEmpresasDistritos()">
+                            <!-- <mat-select-filter [placeholder]="'Filter'" [displayMember]="'name'" [array]="distritoList" (filteredReturn)="filteredListdistrito =$event"></mat-select-filter>   -->
+
+                            <mat-option *ngFor="let item of distritofiltered" [value]="item.id_distrito">
+                                {{item.nombre_distrito}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- <p>You selected: {{distritoselected}}</p> -->
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Lista de Empresas -->
+
+    <!-- empresas segunda version -->
+
+    <!-- cartas -->
+
+
+    <div class="card mb-3 contenedor-empresas" *ngFor="let item of this.empresas |sortEmpresas:'a'|  orderBy: 'emp_aprod.length':'desc'|filterCategorias:categoriaselected|filterComboBox:nameDepartamento| filterProvincias:nameProvincia | filterDistritos:nameDistrito ">
+        <div class="row no-gutters">
+            <div class="col-md-3 contenedor-img">
+                <img class="card-img" *ngIf="item.emp_clogo?.length < 1; else imagenblock" src="../../../assets/images/invoice_logo.png" alt="">
+                <ng-template #imagenblock>
+                    <img class="card-img" src={{item.emp_clogo}} alt="">
+                </ng-template>
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 class="card-title titulo-empresas">{{item.emp_cncomer}}</h5>
+                    <h6 class="card-title razon-social">{{item.emp_crass}}</h6>
+                    <p class="card-text descripcion-empresa">{{item.aeco_cdesc | lowercase }}</p>
+                    <p class="contenedor-estrellas">
+                        <ng-template #t let-fill="fill">
+                            <span class="star" [class.full]="fill === 100">
+                              <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
+                            </span>
+                        </ng-template>
+                        <ngb-rating [starTemplate]="t" [rate]="item.emp_ncalif" [readonly]="true" [max]="5"></ngb-rating>
+                    </p>
+
+                    <button type="button" class="btn btn-success" (click)="verEmpresa(item.propertyId)">Ver Productos</button>
+                    <h5 class="card-title lugar">{{item.emp_cdepa}} - {{item.emp_cprov}} - {{item.emp_cdist}}</h5>
+                </div>
+            </div>
+        </div>
