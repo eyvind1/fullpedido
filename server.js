@@ -3,10 +3,10 @@ const path = require('path')
 
 const app = express()
 
-app.use(express.static('./dist/fullpedido'))
+app.use(express.static('./dist/fullpedidoangular'))
 
 app.get('/*',(req,res)=>
-    res.sendFile('index.html',{root:'dist/fullpedido/'}),
+    res.sendFile('index.html',{root:'dist/fullpedidoangular/'}),
 );
 
 app.listen(process.env.PORT || 8080)
